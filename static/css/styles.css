@@ -1,0 +1,129 @@
+html {
+max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #ffb26b;
+    margin: 0px;
+}
+
+h4{
+    padding-left: 10px;
+}
+
+footer {
+    height: 65px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #939b62;
+    color: #ffd56b;
+    text-align: right;
+    position: fixed;
+}
+
+.fa-clipboard-list {
+    color: #ff7b54;
+}
+
+.fa-plus {
+       color: #ffd56b;
+}
+
+.col-sm {
+    margin-bottom: 100px;
+}
+
+.btn-warning,
+.btn-warning:active,
+.btn-warning:visited,
+.btn-warning:focus  {
+    background-color: #939b62;
+    color: #ffd56b;
+    border-color: #ffb26b;
+}
+
+.btn-warning:hover {
+    background-color: #ffd56b;
+    color: #939b62;
+    border-color: #ffb26b;
+}
+
+.move-button {
+    background-color: #ff7b54 !important;
+}
+
+.fa-trash-alt {
+    color:red;
+    padding-top: 5px;
+}
+
+.delete-button {
+     background-color: #ffd56b;
+}
+
+.form-collapser {
+    padding-right: 10px;
+       padding-bottom: 20px;
+}
+
+.task-card {
+    margin: 10px 0;
+}
+
+.task-card .card-body {
+    padding: 10px;
+}
+
+.navbar-custom {
+    z-index: 10;
+    background-color: #ffd56b !important;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.navbar-item {
+        color: #ff7b54 !important;
+        font-family: 'Varela Round', sans-serif !important;
+}
+
+.navbar-brand {
+    font-family: 'Varela Round', sans-serif;
+    padding-left: 50px;
+    font-size: 50px !important;
+    color: #939b62 !important;
+}
+
+.main-card {
+    border-color: #ffd56b;
+       border-radius: 7px;
+}
+
+.main-card-body {
+    background-color: #939b62;
+    border-radius: 7px;
+}
+
+.main-card-body h4 {
+    color: #ffd56b;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.to-do-form {
+    padding: 10px 0;
+    border-radius: 7px;
+    font-family: 'Varela Round', sans-serif;
+    background-color: #ffd56b !important;
+    font-size: 20px;
+    text-align: center;
+}
+
+.to-do-quick-form {
+    color: #939b62;
+}
+
+.to-do-quick-form button {
+    color: black;
+}

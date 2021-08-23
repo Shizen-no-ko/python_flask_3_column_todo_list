@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <!--        Start of 'to-do' column-->
+        <div class="col-sm">
+            <div class="card main-card" style="width: 18rem;">
+                <div class="card-body main-card-body">
+                    <div class="row">
+                        <h4 class="card-title">To Do</h4>
+                        <!--                        Start collapsible 'add-task' form-->
+                        <a class="form-collapser ml-auto" data-toggle="collapse" href="#collapseToDoForm" role="button"
+                           aria-expanded="false" aria-controls="collapseExample">
+                            <i class="fas fa-plus fa-2x"></i>
+                        </a>
+                    </div>
+                    <div class="to-do-form collapse" id="collapseToDoForm">
+                        {{ wtf.quick_form(form, novalidate=True, button_map={'submit':'warning'},
+                        extra_classes="to-do-quick-form") }}
+                    </div>
+                    <!--                        End collapsible 'add-task' form-->
+                    <!--                    Iterate through task list and render according to status-->
+                    {% for task in task_list %}
+                    <div class="container">
+                        {% if task.status == "to-do" %}
+                        <div class="card task-card">
+                            <div class="card-body">
+                                <h5>{{task.task}}</h5>
+                                <div class="row">
+                                    <a class="btn btn-dark btn-sm delete-button"
+                                       href="{{url_for('delete', id=task.id)}}" role="button">
+                                        <i class=" fas fa-trash-alt fa-1x"></i>
+                                    </a>
+                                    <a class="btn btn-light btn-sm move-button ml-auto"
+                                       href="{{url_for('moveRight', id=task.id)}}" role="button">
+                                        <i class="btn fas fa-arrow-right fa-1x"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!--        End of 'to-do' column-->
+        <!--       Start of 'doing' column-->
+        <div class="col-sm">
+            <div class="card main-card" style="width: 18rem;">
+                <div class="card-body main-card-body">
+                    <h4 class="card-title">Doing</h4>
+                    {% for task in task_list %}
+                    <div class="container">
+                        {% if task.status == "doing" %}
+                        <div class="card task-card">
+                            <div class="card-body">
+                                <h5>{{task.task}}</h5>
+                                <div class="row">
+                                    <a class="btn btn-light btn-sm move-button mr-auto"
+                                       href="{{url_for('moveLeft', id=task.id)}}" role="button">
+                                        <i class="btn fas fa-arrow-left fa-1x"></i>
+                                    </a>
+                                    <a class="btn btn-light btn-sm move-button ml-auto"
+                                       href="{{url_for('moveRight', id=task.id)}}" role="button">
+                                        <i class="btn fas fa-arrow-right fa-1x"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!--            End of 'doing' column-->
+
+        <!--            Start of 'done' column-->
+        <div class="col-sm">
+            <div class="card main-card" style="width: 18rem;">
+                <div class="card-body main-card-body">
+                    <h4 class="card-title">Done</h4>
+                    {% for task in task_list %}
+                    <div class="container">
+                        {% if task.status == "done"%}
+                        <div class="card task-card">
+                            <div class="card-body">
+                                <h5>{{task.task}}</h5>
+                                <div class="row">
+                                    <a class="btn btn-light btn-sm move-button mr-auto"
+                                       href="{{url_for('moveLeft', id=task.id)}}" role="button">
+                                        <i class="btn fas fa-arrow-left fa-1x"></i>
+                                    </a>
+                                    <a class="btn btn-dark btn-sm delete-button"
+                                       href="{{url_for('delete', id=task.id)}}" role="button">
+                                        <i class=" fas fa-trash-alt fa-1x"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!--        End of 'done' column-->
+        {% endblock %}
